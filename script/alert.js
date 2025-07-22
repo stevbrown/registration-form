@@ -19,19 +19,19 @@ export function createAlert(message, type) {
     let alertAltSrc = '';
     switch(type) {
         case 'success': // Тип успех
-            alertImgSrc = '/img/Mark.svg';
+            alertImgSrc = './img/Mark.svg';
             alertAltSrc = 'SUC';
             break;
         case 'warning': // Тип предупреждение
-            alertImgSrc = '/img/Warning.svg';
+            alertImgSrc = './img/Warning.svg';
             alertAltSrc = 'WRN';
             break;
         case 'error': // Тип ошибка
-            alertImgSrc = '/img/Prohibit.svg';
+            alertImgSrc = './img/Prohibit.svg';
             alertAltSrc = 'ERR';
             break;
         default: // Значение по умолчанию (ошибка)
-            alertImgSrc = '/img/Warning.svg';
+            alertImgSrc = './img/Warning.svg';
             alertAltSrc = 'ERR';
             break;
     }
@@ -49,7 +49,7 @@ export function createAlert(message, type) {
     const closeButton = document.createElement('button');
     const closeImg = document.createElement('img');
     closeButton.classList.add('closeNotify');
-    closeImg.src = '/img/Close.svg';  // Иконка кнопки закрытия
+    closeImg.src = './img/Close.svg';  // Иконка кнопки закрытия
     closeImg.alt = 'X'; // Альтернативный текст кнопки закрытия
     closeButton.appendChild(closeImg);
 

@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet/less" type="text/css" href="/css/style.less">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="stylesheet/less" type="text/css" href="./css/style.less">
     <script src="https://cdn.jsdelivr.net/npm/less@3.13"></script>
-    <script type="module" src="/script/script.js"></script>
-    <script src="/script/corrector.js"></script>
+    <script type="module" src="./script/script.js"></script>
+    <script src="./script/corrector.js"></script>
     <!-- <script src="/script/alert.js"></script> -->
     <title>Registration — Company Name</title>
 </head>
 <body class="unloaded">
     <section class="logotype">
-        <img src="/img/Logo.svg" alt="">
+        <img src="./img/Logo.svg" alt="">
     </section>
     <section class="contents">
         <section class="progress-bar active">
-            <img id="progress-bar" src="/img/progress_bar/FirstCheck.svg" alt="">
+            <img id="progress-bar" src="./img/progress_bar/FirstCheck.svg" alt="">
         </section>
         <section class="step active" id="step1">
             <section class="title">
@@ -32,12 +32,12 @@
             </section>
             <section class="notif-block">
                 <section class="notification loaded" id="notification">
-                    <img src="/img/Lock.svg" alt="">
+                    <img src="./img/Lock.svg" alt="">
                     <p class="caption-text">
                         We take privacy issues seriously. 
                         You can be sure that your personal data is securely protected.
                     </p>
-                    <button class="closeNotify" onclick="closeNotify()"><img src="/img/Close.svg" alt=""></button>
+                    <button class="closeNotify" onclick="closeNotify()"><img src="./img/Close.svg" alt=""></button>
                 </section>
             </section>
             <section class="space">
@@ -71,13 +71,13 @@
                     <input class="codeEnter" id="code-enter" type="text" placeholder="----" maxlength="4" oninput="codeCorrector()">
                     <span class="caption-text">Confirm phone number with code from sms message</span>
                 </section>
-                <button class="sendAgain" onclick="resendCode()"><img src="/img/Reverse.svg" alt="">Send again</button>
+                <button class="sendAgain" onclick="resendCode()"><img src="./img/Reverse.svg" alt="">Send again</button>
             </section>
             <button id="confirmCode" class="secondary">Confirm</button>
         </section>
     </section>
     <button class="clearly" onclick="closePage()">
-        <img src="/img/Close.svg" alt="">
+        <img src="./img/Close.svg" alt="">
     </button>
 </body>
 </html>
