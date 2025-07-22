@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const select = document.querySelector("#phone-code");
 
-    fetch("/lib/phone_country_codes.json")
+    fetch("./lib/phone_country_codes.json")
         .then(response => response.json())
         .then(data => {
             const emojiFlags = getEmojiFlags();
