@@ -180,7 +180,7 @@ body {
     & .space {
         display: flex;
         flex-direction: column;
-        width: 100%;
+        width: 460px;
         padding: 32px;
         gap: 32px;
         border: #e2e4e5 solid 1px;
@@ -198,6 +198,33 @@ body {
         & .fields {
             display: flex;
             gap: 16px;
+
+            &#password-fields {
+                flex-direction: column;
+            }
+
+            & .contents {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 16px;
+                border: transparent;
+                border-bottom: 1px #e2e4e5 solid;
+            }
+
+            & .caption {
+                display: none;
+                align-items: center;
+                gap: 4px;
+
+                & span {
+                    font-family: 'Poppins';
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 16px;
+                    letter-spacing: 0%;
+                }
+            }
 
             & select {
                 display: flex;
@@ -243,6 +270,37 @@ body {
                     outline: none;
                 }
             }
+
+            & input.email-id,
+            & input.pass-word {
+                display: flex;
+                width: 100%;
+                padding: 8px 16px;
+                border: transparent;
+                border-radius: 6px 6px 0px 0px;
+                border-bottom: 1px #e2e4e5 solid;
+
+                font-family: 'Roboto';
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 28px;
+                letter-spacing: 0%;
+                color: #242426;
+
+                &:focus {
+                    outline: none;
+                }
+                
+                &::placeholder {
+                    user-select: none;
+                    font-size: 14px;
+                }
+            }
+
+            & input.pass-word {
+                border: transparent;
+                border-bottom: transparent;
+            }
         }
 
         &#phone-edit {
@@ -275,6 +333,46 @@ body {
                     line-height: 18px;
                     letter-spacing: 0%;
                     color: #575f6e;
+                }
+            }
+        }
+
+        &#phone-accepted {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 16px;
+
+            & .contents {
+                display: flex;
+                width: fit-content;
+                flex-direction: column;
+                gap: 2px;
+    
+                & span.field-text {
+                    font-family: 'Roboto';
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 28px;
+                    letter-spacing: 0%;
+                    color: #242426;
+                }
+    
+                & span.caption-text {
+                    user-select: none;
+                    font-family: 'Poppins';
+                    font-weight: 400;
+                    font-size: 13px;
+                    line-height: 18px;
+                    letter-spacing: 0%;
+                    color: #575f6e;
+                }
+
+                & .caption__number {
+                    display: flex;
+                    gap: 4px;
+                    align-items: center;
                 }
             }
         }
@@ -364,6 +462,27 @@ button {
         letter-spacing: 0%;
         text-align: center;
         color: #242731;
+    }
+
+    &.primary {
+        display: flex;
+        width: fit-content;
+        height: 48px;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 32px;
+        gap: 8px;
+        border: transparent;
+        border-radius: 4px;
+        background-color: #007AFF;
+
+        font-family: 'Poppins';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0%;
+        text-align: center;
+        color: #ffffff;
     }
 
     &.clearly {

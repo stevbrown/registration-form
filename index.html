@@ -10,7 +10,7 @@
     <link rel="stylesheet/less" type="text/css" href="./css/style.less">
     <script src="https://cdn.jsdelivr.net/npm/less@3.13"></script>
     <script type="module" src="./script/script.js"></script>
-    <script src="./script/corrector.js"></script>
+    <script type="module" src="./script/corrector.js"></script>
     <!-- <script src="/script/alert.js"></script> -->
     <title>Registration — Company Name</title>
 </head>
@@ -74,6 +74,43 @@
                 <button class="sendAgain" onclick="resendCode()"><img src="./img/Reverse.svg" alt="">Send again</button>
             </section>
             <button id="confirmCode" class="secondary">Confirm</button>
+        </section>
+        <section class="step" id="step3">
+            <section class="title">
+                <span class="large-title">Registration</span>
+                <p class="body-text">
+                    Fill in the registration data. It will take a couple of minutes.<br>
+                    All you need is a phone number and e-mail.
+                </p>
+            </section>
+            <section class="space" id="phone-accepted">
+                <section class="contents">
+                    <span id="confirmed-number" class="field-text">+x (xxx) xxx-xx-xx</span>
+                    <section class="caption__number">
+                        <img src="./img/NuCon.svg" alt="">
+                        <span class="caption-text">Number confirmed</span>
+                    </section>
+                </section>
+            </section>
+            <section class="notif-block"></section>
+            <section class="space">
+                <span class="field-label">Enter your email</span>
+                <section class="fields">
+                    <input type="email" class="email-id" id="email-id" maxlength="255" autocomplete="email" placeholder="example_mail@examp.le" oninput="mailCorrector(event)" onblur="mailCorrectCheck(event)">
+                </section>
+                <span class="field-label">Set a password</span>
+                <section class="fields" id="password-fields">
+                    <section class="contents">
+                        <input type="password" class="pass-word" id="pass-word" maxlength="255" autocomplete="new-password" oninput="checkPassword()">
+                        <button class="clearly" id="showPass"><img src="./img/OpenEye.svg" alt="" id="showPass__img"></button>
+                    </section>
+                    <section class="caption" id="caption__status">
+                        <img src="" alt="" class="caption-img" id="caption-img__status">
+                        <span class="caption-text" id="caption-text__status">Unknown status</span>
+                    </section>
+                </section>
+            </section>
+            <button id="confirmCode" class="primary">Register Now</button>
         </section>
     </section>
     <button class="clearly" onclick="closePage()">
