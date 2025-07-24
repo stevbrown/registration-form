@@ -31,7 +31,7 @@ body {
 .contents {
     display: flex;
     flex-direction: column;
-    max-width: 460px;
+    width: 460px;
     padding-top: 8px;
     gap: 80px;
 }
@@ -148,7 +148,6 @@ body {
         }
 
         & p.caption-text {
-            width: 100%;
             font-family: 'Poppins';
             font-weight: 400;
             font-size: 13px;
@@ -503,6 +502,10 @@ button {
             cursor: progress;
             transform: scale(.95);
         }
+
+        &.top {
+            display: none;
+        }
     }
 
     &.sendAgain {
@@ -552,4 +555,197 @@ button {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+
+@media (max-width: 700px) {
+    body {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 48px;
+    }
+
+    .logotype {
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        padding: 8px 24px;
+
+        & img {
+            width: 200px;
+        }
+    }
+
+    .progress-bar {
+        justify-content: center;
+    }
+
+    
+    .contents {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        padding-top: 8px;
+        gap: 80px;
+    }
+
+    .step {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+
+        & .title {
+            width: 100%;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        & .notification,
+        & .notification-c {
+            display: flex;
+            width: 100%;
+            padding: 16px 24px;
+            gap: 16px;
+            border-radius: 0;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: #f0f2f4;
+
+            opacity: 0;
+            transform: scale(0.95);
+
+            user-select: none;
+            -webkit-user-drag: none;
+
+            transition: opacity 1.25s ease, transform 1.25s ease;
+
+            &.loaded {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            &.closed {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            & img {
+                width: 24px;
+                height: 24px;
+            }
+
+            & p.caption-text {
+                font-family: 'Poppins';
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 18px;
+                letter-spacing: 0%;
+                color: #242426;
+            }
+
+            & button.closeNotify {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: transparent;
+
+                transition: transform .35s ease;
+
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(1.1);
+                }
+
+                &:active {
+                    cursor: progress;
+                    transform: scale(.95);
+                }
+            }
+        }
+
+        & .notif-block {
+            width: 100vw;
+        }
+
+        & .space {
+            width: 100%;
+            align-items: flex-start;
+            padding: 0px 24px;
+            border: none;
+
+            &#phone-edit {
+                border-radius: 0;
+                background-color: #EFF7FF;
+            }
+
+            &#phone-accepted {
+                border-radius: 0;
+                background-color: #EFF7FF;
+            }
+
+            &#confirm-code {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 24px;
+            }
+
+            & .fields {
+                display: flex;
+                width: 100%;
+                gap: 16px;
+            }
+
+            & .contents {
+                width: 100%;
+            }
+
+            & input.email-id,
+            & input.pass-word {
+                display: flex;
+                width: 100%;
+                padding: 8px 16px;
+                border: transparent;
+                border-radius: 6px 6px 0px 0px;
+                border-bottom: 1px #e2e4e5 solid;
+
+                font-family: 'Roboto';
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 28px;
+                letter-spacing: 0%;
+                color: #242426;
+
+                &:focus {
+                    outline: none;
+                }
+                
+                &::placeholder {
+                    user-select: none;
+                    font-size: 14px;
+                }
+            }
+
+            & input.pass-word {
+                border: transparent;
+                border-bottom: transparent;
+            }
+        }
+    }
+
+    button#closePage.clearly {
+        display: none;
+
+        &.top {
+            display: flex;
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    button.sendAgain {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }

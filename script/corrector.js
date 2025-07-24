@@ -84,13 +84,12 @@ function mailCorrector(event) {
 
 function mailCorrectCheck(event) {
     const input = event.target;
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
     if (input.value.length < 5) {
         createAlert('The provided email address is too short and lacks the necessary components to be considered valid.', 'error');
         return;
     }
-
-    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
     if (!emailPattern.test(input.value)) {
         createAlert('The entered email address is invalid and does not meet the required format.', 'error');
