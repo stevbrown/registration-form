@@ -53,7 +53,7 @@ function codeCorrector() {
     });
 }
 
-function blockCyrillic(event) {
+export function blockCyrillic(event) {
     const input = event.target;
     const cyrillicPattern = /[А-Яа-яЁё]/;
 

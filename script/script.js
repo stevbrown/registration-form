@@ -1,5 +1,6 @@
 import { getEmojiFlags } from "./getEmoji.js";
 import { createAlert } from "./alert.js";
+import { blockCyrillic } from "./corrector.js"; 
 
 var code;
 var number_conf;
@@ -210,11 +211,13 @@ document.querySelector('#showPass').addEventListener('click', function() {
     }
 });
 
-function checkPassword() {
+function checkPassword(event) {
     const element = document.getElementById('pass-word');
     const caption = document.getElementById('caption__status');
     const imgstatus = document.getElementById('caption-img__status');
     const status = document.getElementById('caption-text__status');
+
+    blockCyrillic(event);
 
     if (element.value.length != 0 && element.value.length > 0) {
         caption.style.display = 'flex';
