@@ -164,7 +164,7 @@ document.querySelector('#registerNow').addEventListener('click', function() {
 
         if (!emailInput || !passwordInput) {
             createAlert('Attention! Fields cannot be empty or incorrect.', 'error');
-        } else if (passwordInput < 6) {
+        } else if (passwordInput.length < 6) {
             createAlert('Password length is insufficient. Please enter a longer password.', 'error');
         } else if (!mailCorrectAfterCheck('email-id')) {
             createAlert('The provided email address is too short and lacks the necessary components to be considered valid.', 'error');
