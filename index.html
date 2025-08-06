@@ -11,7 +11,6 @@
     <script src="https://cdn.jsdelivr.net/npm/less@3.13"></script>
     <script type="module" src="./script/script.js"></script>
     <script type="module" src="./script/corrector.js"></script>
-    <!-- <script src="/script/alert.js"></script> -->
     <title>Registration — Company Name</title>
 </head>
 <body class="unloaded">
@@ -21,7 +20,7 @@
             <img src="./img/Close.svg" alt="">
         </button>
     </section>
-    <section class="contents">
+    <section class="contents all">
         <section class="progress-bar active">
             <img id="progress-bar" src="./img/progress_bar/FirstCheck.svg" alt="">
         </section>
@@ -65,7 +64,6 @@
                     <span id="choiced-number" class="field-text">+x (xxx) xxx-xx-xx</span>
                     <span class="caption-text">Number not confirmed yet</span>
                 </section>
-                <!-- <button id="open-edit" class="openEdit" title="Edit"><img src="/img/Edit.svg" alt=""></button> -->
             </section>
             <section class="notif-block"></section>
             <section class="space" id="confirm-code">
@@ -113,11 +111,62 @@
                     </section>
                 </section>
             </section>
-            <button id="confirmCode" class="primary">Register Now</button>
+            <button id="registerNow" class="primary">Register Now</button>
+        </section>
+        <section class="step" id="step4">
+            <section class="title">
+                <span class="large-title">Profile info</span>
+                <p class="body-text">
+                    Fill in the data for profile. It will take a couple of minutes.
+                    You only need a passport.
+                </p>
+            </section>
+            <section class="agreement">
+                <input type="checkbox" name="agreement-check" id="agreement-inp">
+                <span class="caption-text">I agree with</span> <a href="" class="caption-text link">Terms of use</a>
+            </section>
+            <section class="notif-block"></section>
+            <section class="space">
+                <section class="subhead">
+                    <span class="medium-title">Personal data</span>
+                    <span class="small-text">Specify exactly as in your passport</span>
+                </section>
+                <span class="field-label">First name</span>
+                <section class="fields">
+                    <input type="text" class="userdata" id="first-name" maxlength="255" autocomplete="given-name" placeholder="Anthony">
+                </section>
+                <span class="field-label">Second name</span>
+                <section class="fields">
+                    <input type="text" class="userdata" id="second-name" maxlength="255" autocomplete="family-name" placeholder="Browning">
+                </section>
+                <section class="field-box">
+                    <section class="content-box">
+                        <span class="field-label">Date of Birth</span>
+                        <section class="fields">
+                            <input type="date" class="dob-pob" id="dob" maxlength="255" autocomplete="bday">
+                        </section>
+                    </section>
+                    <section class="content-box">
+                        <span class="field-label">Place of Birth</span>
+                        <section class="fields">
+                            <input type="text" list="cities" class="dob-pob" id="pob" maxlength="255" value="Edmonton, 🇨🇦">
+                            <datalist id="cities"></datalist>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="space" id="userId">
+                <section class="contents">
+                    <span id="user-id" class="field-text">000-00-00</span>
+                    <section class="caption__number">
+                        <img src="./img/NuCon.svg" alt="">
+                        <span class="caption-text">Your ID in App</span>
+                    </section>
+                </section>
+            </section>
+            <button id="first-next" class="secondary">Go next<img src="./img/RightStrel.svg" alt=""></button>
         </section>
     </section>
-    <button id="closePage" class="clearly" onclick="closePage()">
-        <img src="./img/Close.svg" alt="">
-    </button>
+    <button id="closePage" class="clearly" onclick="closePage()"><img src="./img/Close.svg" alt=""></button>
 </body>
 </html>

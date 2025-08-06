@@ -96,6 +96,24 @@ function mailCorrectCheck(event) {
     } 
 }
 
+function mailCorrectAfterCheck(mail) {
+    const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+    const emailPat = document.getElementById(mail);
+
+    if (emailPat.length < 5) {
+        createAlert('The provided email address is too short and lacks the necessary components to be considered valid.', 'error');
+        return false;
+    }
+
+    if (!emailPattern.test(emailPat.value)) {
+        createAlert('The entered email address is invalid and does not meet the required format.', 'error');
+        return false;
+    }
+
+    return true;
+}
+
 
 window.phoneCorrector = phoneCorrector;
 window.formatPhoneNumber = formatPhoneNumber;
@@ -104,3 +122,4 @@ window.codeCorrector = codeCorrector;
 window.blockCyrillic = blockCyrillic;
 window.mailCorrector = mailCorrector;
 window.mailCorrectCheck = mailCorrectCheck;
+window.mailCorrectAfterCheck = mailCorrectAfterCheck;

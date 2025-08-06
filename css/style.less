@@ -32,8 +32,12 @@ body {
     display: flex;
     flex-direction: column;
     width: 460px;
-    padding-top: 8px;
     gap: 80px;
+
+    &.all {
+        padding-top: 8px;
+        padding-bottom: 40px;
+    }
 }
 
 .progress-bar {
@@ -78,13 +82,15 @@ body {
     }
 
     &#step2.active,
-    &#step3.active {
+    &#step3.active,
+    &#step4.active {
         opacity: 1;
         transform: translateX(0px);
     }
 
     &#step2.disactive,
-    &#step3.disactive {
+    &#step3.disactive,
+    &#step4.disactive {
         opacity: 0;
         transform: translateX(-50%);
     }
@@ -110,6 +116,43 @@ body {
             line-height: 22px;
             letter-spacing: 0%;
             color: #575f6e;
+        }
+    }
+
+    & .agreement {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 8px;
+
+        user-select: none;
+
+        & input {
+            width: 18px;
+            aspect-ratio: 1/1;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:active {
+                cursor: progress;
+            }
+        }
+
+        & .caption-text {
+            font-family: 'Roboto';
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0%;
+            color: #242731;
+
+            &.link {
+                text-decoration: none;
+                font-weight: 500;
+                color: #007AFF;
+            }
         }
     }
 
@@ -148,6 +191,7 @@ body {
         }
 
         & p.caption-text {
+            width: 100%;
             font-family: 'Poppins';
             font-weight: 400;
             font-size: 13px;
@@ -192,6 +236,40 @@ body {
             line-height: 20px;
             letter-spacing: 0%;
             color: #242426;
+        }
+
+        & .subhead {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+
+            & span.medium-title {
+                font-family: 'Poppins';
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 28px;
+                letter-spacing: 0%;
+                color: #242731;
+            }
+
+            & span.small-text {
+                font-family: 'Poppins';
+                font-weight: 300;
+                font-size: 12px;
+                line-height: 16px;
+                color: #575f6e;
+            }
+        }
+
+        & .field-box {
+            display: flex;
+            gap: 32px;
+
+            & .content-box {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+            }
         }
 
         & .fields {
@@ -272,7 +350,8 @@ body {
             }
 
             & input.email-id,
-            & input.pass-word {
+            & input.pass-word,
+            & input.userdata {
                 display: flex;
                 width: 100%;
                 padding: 8px 16px;
@@ -301,6 +380,11 @@ body {
                 border: transparent;
                 border-bottom: transparent;
             }
+
+            & input.dob-pob {
+                width: 100%;
+                height: 47px;
+            }
         }
 
         &#phone-edit {
@@ -313,6 +397,7 @@ body {
             & .contents {
                 display: flex;
                 width: fit-content;
+                height: fit-content;
                 flex-direction: column;
                 gap: 2px;
     
@@ -337,7 +422,8 @@ body {
             }
         }
 
-        &#phone-accepted {
+        &#phone-accepted,
+        &#userId {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -551,13 +637,11 @@ button {
     }
 }
 
-
 .notif-block {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-
 
 @media (max-width: 700px) {
     body {
@@ -666,6 +750,10 @@ button {
             }
         }
 
+        & .agreement {
+            justify-content: center;
+        }
+
         & .notif-block {
             width: 100vw;
         }
@@ -681,7 +769,8 @@ button {
                 background-color: #EFF7FF;
             }
 
-            &#phone-accepted {
+            &#phone-accepted,
+            &#userId {
                 border-radius: 0;
                 background-color: #EFF7FF;
             }
@@ -701,6 +790,21 @@ button {
 
             & .contents {
                 width: 100%;
+            }
+
+            & .field-box {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 32px;
+
+                & .content-box {
+                    width: 100%;
+
+                    & input.dob-pob {
+                        width: 100%;
+                    }
+                }
             }
 
             & input.email-id,

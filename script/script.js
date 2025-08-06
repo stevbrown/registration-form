@@ -32,6 +32,32 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => {
             console.error("Ошибка загрузки phone_country_codes.json:", error);
         });
+    
+    const datalist = document.getElementById("cities");
+
+    fetch("./lib/cities.json")
+        .then(response => response.json())
+        .then(data => {
+            const emojiFlags = getEmojiFlags();
+
+            Object.values(data).forEach(region => {
+                Object.entries(region).forEach(([country, cities]) => {
+                    const flag = emojiFlags[country] || "";
+                    cities.forEach(city => {
+                        const option = document.createElement("option");
+                        option.value = `${city}, ${flag}`;
+                        datalist.appendChild(option);
+                    });
+                });
+            });
+        })
+        .catch(error => {
+            console.error("Ошибка загрузки cities.json:", error);
+        });
+
+        const today = new Date();
+        const minAge = new Date(today.getFullYear() - 14, today.getMonth(), today.getDate());
+        document.querySelector('#dob').max = minAge.toISOString().split('T')[0];
 });
 
 function closeNotify() {
@@ -50,7 +76,6 @@ document.querySelector('#sendCode').addEventListener('click', function() {
         const phoneNumber = phoneInput ? phoneInput.value.replace(/\D/g, '') : '';
         const phoneCode = document.querySelector('#phone-code').value;
 
-        // const code = phoneCode.value;
         const number = phoneInput.value.replace(/\s+/g, '');
 
         const step1 = document.getElementById('step1');
@@ -126,13 +151,46 @@ document.querySelector('#confirmCode').addEventListener('click', function() {
     }
 });
 
-// document.querySelector('#open-edit').addEventListener('click', function() {
-//     try {
-        
-//     } catch (error) {
-//         alert(`Error ${error}`);
-//     }
-// });
+document.querySelector('#registerNow').addEventListener('click', function() {
+    try {
+        const progress = document.getElementById('progress-bar');
+        const bar = document.querySelector('.progress-bar');
+        const step3 = document.getElementById('step3');
+        const step4 = document.getElementById('step4');
+        const userid = document.getElementById('user-id');
+
+        const emailInput = document.getElementById('email-id').value;
+        const passwordInput = document.getElementById('pass-word').value;
+
+        if (!emailInput || !passwordInput) {
+            createAlert('Attention! Fields cannot be empty or incorrect.', 'error');
+        } else if (passwordInput < 6) {
+            createAlert('Password length is insufficient. Please enter a longer password.', 'error');
+        } else if (!mailCorrectAfterCheck('email-id')) {
+            createAlert('The provided email address is too short and lacks the necessary components to be considered valid.', 'error');
+        } else {
+            bar.classList.remove('active');
+            setTimeout(() => {
+                progress.src = './img/progress_bar/FirstCheck.svg'
+                bar.classList.add('active');
+            }, 550);
+
+            step3.classList.remove('active');
+            step3.classList.add('disactive');
+            setTimeout(() => {
+                step3.style.display = 'none';
+                step4.style.display = 'flex';
+                setTimeout(() => {
+                    step4.classList.add('active');
+                }, 25)
+            }, 1300);
+
+            userid.textContent = generateUUIDID();
+        }
+    } catch (error) {
+        alert(`Error ${error}`);
+    }
+});
 
 function pushCode(phone) {
     const choicedNumber = document.getElementById('choiced-number');
@@ -159,18 +217,30 @@ function generateRandomCode() {
     return Math.floor(1000 + Math.random() * 9000);
 }
 
+function generateUUIDID() {
+    const uuid = crypto.randomUUID();
+    return (
+        uuid.slice(0, 3) + '-' +
+        uuid.slice(3, 5) + '-' +
+        uuid.slice(5, 7)
+    );
+}
+
 function setActive(step) {
     const step1 = document.getElementById('step1');
     const step2 = document.getElementById('step2');
     const step3 = document.getElementById('step3');
+    const step4 = document.getElementById('step4');
 
     step1.classList.remove('active');
     step2.classList.remove('active');
     step3.classList.remove('active');
+    step4.classList.remove('active');
 
     step1.style.display = 'none';
     step2.style.display = 'none';
     step3.style.display = 'none';
+    step4.style.display = 'none';
 
 
     switch (step) {
@@ -187,6 +257,10 @@ function setActive(step) {
         case 3:
             step3.style.display = 'flex';
             step3.classList.add('active');
+            break;
+        case 4:
+            step4.style.display = 'flex';
+            step4.classList.add('active');
             break;
     
         default:

@@ -1,0 +1,23 @@
+{
+    "EU": {
+    "Germany": ["Berlin","Hamburg","Munich","Cologne","Frankfurt"],
+    "Spain": ["Madrid","Barcelona","Valencia","Sevilla","Zaragoza"],
+    "France": ["Paris","Marseille","Lyon","Toulouse","Nice"],
+    "Italy": ["Rome","Milan","Naples","Turin","Palermo"],
+    "Poland": ["Warsaw","Krakow","Łódź","Wrocław","Poznań"]
+    },
+    "CIS": {
+    "Russia": ["Москва", "Санкт-Петербург", "Новосибирск", "Екатеринбург", "Нижний Новгород"],
+    "Ukraine": ["Киев", "Харьков", "Одесса", "Днепр", "Донецк"],
+    "Belarus": ["Минск", "Гомель", "Могилёв", "Витебск", "Гродно"],
+    "Kazakhstan": ["Алматы", "Нур-Султан", "Шымкент", "Караганда", "Актобе"],
+    "Uzbekistan": ["Ташкент", "Самарканд", "Наманган", "Андижан", "Бухара"]
+    },
+    "Americas": {
+    "USA": ["New York","Los Angeles","Chicago","Houston","Phoenix"],
+    "Canada": ["Toronto","Montreal","Calgary","Ottawa","Edmonton"],
+    "Mexico": ["Mexico City","Guadalajara","Puebla","Tijuana","León"],
+    "Brazil": ["São Paulo","Rio de Janeiro","Salvador","Brasília","Fortaleza"],
+    "Argentina": ["Buenos Aires","Córdoba","Rosario","Mendoza","La Plata"]
+    }
+}
