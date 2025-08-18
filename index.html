@@ -166,7 +166,61 @@
             </section>
             <button id="first-next" class="secondary">Go next<img src="./img/RightStrel.svg" alt=""></button>
         </section>
+        <section class="step" id="step5">
+        <section class="title">
+            <span class="large-title">Profile info</span>
+            <p class="body-text">
+                Fill in the data for profile. It will take a couple of minutes.
+                You only need a passport.
+            </p>
+        </section>
+        <section class="notif-block"></section>
+        <section class="space">
+            <section class="subhead">
+                <span class="medium-title">Contacts</span>
+                <span class="small-text">These contacts are used to inform about orders</span>
+            </section>
+            <section class="fields filled">
+                <img src="./img/Mail.svg" alt="">
+                <input type="email" class="email-id" id="email-confirm" maxlength="255" autocomplete="email" placeholder="example_mail@examp.le" oninput="mailCorrector(event)" onblur="mailCorrectCheck(event)">
+            </section>
+            <section class="fields filled">
+                <img src="./img/Phone.svg" alt="">
+                <input type="tel" class="phone-number" id="phone-confirm" maxlength="12" autocomplete="off" placeholder="(XXX) XXX-XX-XX" oninput="phoneCorrector()" onchange="formatPhoneNumber()">
+            </section>
+            <section class="subhead">
+                <span class="medium-title">Social network</span>
+                <span class="small-text">Indicate the desired communication method</span>
+            </section>
+            <section class="field-box column" id="socialspace">
+                <section class="fields">
+                    <select name="social-choice" id="soc-media" class="soc-mediaa"></select>
+                    <input type="text" class="phone-number" id="soc-profile" maxlength="255" autocomplete="nickname" placeholder="@profile">
+                </section>
+            </section>
+            <button class="addMore" id="addMore"><img src="./img/Plus.svg" alt="">Add More</button>
+        </section>
+        <button id="first-next" class="secondary">Go next<img src="./img/RightStrel.svg" alt=""></button>
+        </section>
+        <section class="step" id="step6">
+            <section class="title">
+                <span class="large-title">Profile info</span>
+                <p class="body-text">
+                    Fill in the data for profile. It will take a couple of minutes.
+                    You only need a passport.
+                </p>
+            </section>
+            <section class="notif-block"></section>
+            <section class="space">
+                <section class="subhead">
+                    <span class="medium-title">Delivery address</span>
+                    <span class="small-text">Used for shipping orders</span>
+                </section>
+            </section>
+            <button id="first-next" class="primary"><img src="./img/Savee.svg" alt="">Save</button>
+            </section>
     </section>
+    
     <button id="closePage" class="clearly" onclick="closePage()"><img src="./img/Close.svg" alt=""></button>
 </body>
 </html>

@@ -83,14 +83,18 @@ body {
 
     &#step2.active,
     &#step3.active,
-    &#step4.active {
+    &#step4.active,
+    &#step5.active,
+    &#step6.active {
         opacity: 1;
         transform: translateX(0px);
     }
 
     &#step2.disactive,
     &#step3.disactive,
-    &#step4.disactive {
+    &#step4.disactive,
+    &#step5.disactive,
+    &#step6.disactive {
         opacity: 0;
         transform: translateX(-50%);
     }
@@ -265,6 +269,10 @@ body {
             display: flex;
             gap: 32px;
 
+            &.column {
+                flex-direction: column;
+            }
+
             & .content-box {
                 display: flex;
                 width: 100%;
@@ -275,6 +283,16 @@ body {
         & .fields {
             display: flex;
             gap: 16px;
+
+            &.filled {
+                border: transparent;
+                border-bottom: 1px #e2e4e5 solid;
+
+                & input.email-id,
+                & input.phone-number {
+                    border-bottom: transparent;
+                }
+            }
 
             &#password-fields {
                 flex-direction: column;
@@ -374,6 +392,10 @@ body {
                     user-select: none;
                     font-size: 14px;
                 }
+            }
+
+            & input.email-id#email-confirm {
+                padding-left: 0px;
             }
 
             & input.pass-word {
@@ -625,6 +647,36 @@ button {
         }
     }
 
+    &.addMore {
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 0 16px;
+        border: transparent;
+        border-radius: 4px;
+        background: transparent;
+
+        white-space: nowrap;
+
+        color: #007aff;
+        font-family: 'Roboto';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+
+        & img {
+            transition: transform 0.75s ease;
+        }
+
+        &:hover img {
+            transform: rotate(90deg);
+        }
+    }
+
     &.openEdit {
         display: flex;
         width: fit-content;
@@ -787,7 +839,7 @@ button {
                 width: 100%;
                 gap: 16px;
             }
-
+            
             & .contents {
                 width: 100%;
             }

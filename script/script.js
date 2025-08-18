@@ -55,6 +55,27 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Ошибка загрузки cities.json:", error);
         });
 
+        const selecte = document.getElementById('soc-media');
+
+        fetch('./lib/social_networks.json')
+            .then(response => response.json())
+            .then(data => {
+                const entries = Object.entries(data).sort(([a], [b]) => a.localeCompare(b));
+
+                entries.forEach(([network, details]) => {
+                    const option = document.createElement('option');
+                    
+                    option.value = network;
+                    option.textContent = network;
+                    selecte.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки social_networks.json:', error);
+            });
+
+
+
         const today = new Date();
         const minAge = new Date(today.getFullYear() - 14, today.getMonth(), today.getDate());
         document.querySelector('#dob').max = minAge.toISOString().split('T')[0];
@@ -106,6 +127,9 @@ document.querySelector('#sendCode').addEventListener('click', function() {
             }, 1300);
             pushCode(`+${phoneCode} ${phoneInput.value}`);
             number_conf = `+${phoneCode} ${phoneInput.value}`;
+
+            const confirmedPhne = document.getElementById('phone-confirm');
+            confirmedPhne.value = `+${phoneCode} ${phoneInput.value}`;
         }
     } catch(error) {
         alert(`Error ${error}`);
@@ -186,6 +210,9 @@ document.querySelector('#registerNow').addEventListener('click', function() {
             }, 1300);
 
             userid.textContent = generateUUIDID();
+
+            const confirmedEmail = document.getElementById('email-confirm');
+            confirmedEmail.value = `${emailInput}`;
         }
     } catch (error) {
         alert(`Error ${error}`);
@@ -231,17 +258,22 @@ function setActive(step) {
     const step2 = document.getElementById('step2');
     const step3 = document.getElementById('step3');
     const step4 = document.getElementById('step4');
+    const step5 = document.getElementById('step5');
+    const step6 = document.getElementById('step6');
 
     step1.classList.remove('active');
     step2.classList.remove('active');
     step3.classList.remove('active');
     step4.classList.remove('active');
+    step5.classList.remove('active');
+    step6.classList.remove('active');
 
     step1.style.display = 'none';
     step2.style.display = 'none';
     step3.style.display = 'none';
     step4.style.display = 'none';
-
+    step5.style.display = 'none';
+    step6.style.display = 'none';
 
     switch (step) {
         case 1:
@@ -261,6 +293,14 @@ function setActive(step) {
         case 4:
             step4.style.display = 'flex';
             step4.classList.add('active');
+            break;
+        case 5:
+            step5.style.display = 'flex';
+            step5.classList.add('active');
+            break;
+        case 6:
+            step6.style.display = 'flex';
+            step6.classList.add('active');
             break;
     
         default:
@@ -284,6 +324,67 @@ document.querySelector('#showPass').addEventListener('click', function() {
         alert(`Error ${error}`);
     }
 });
+
+var counter = 0;
+
+document.querySelector('#addMore').addEventListener('click', function() {
+    try {
+        const socialspace = document.getElementById('socialspace');
+
+        if (counter < 10) {
+            counter++;
+
+            const fieldscreate = document.createElement('section');
+            const seleccreate  = document.createElement('select');
+            const inputcreate = document.createElement('input');
+
+            seleccreate.id = `soc-media-${counter}`;
+            seleccreate.classList.add('soc-mediaa');
+
+            inputcreate.id = `soc-profile-${counter}`;
+            inputcreate.classList.add('phone-number');
+            inputcreate.autocomplete = 'nickname';
+            inputcreate.maxLength = '255';
+            inputcreate.type = 'text';
+            inputcreate.placeholder = '@profile';
+
+            fetch('./lib/social_networks.json')
+                .then(response => response.json())
+                .then(data => {
+                    const entries = Object.entries(data).sort(([a], [b]) => a.localeCompare(b));
+
+                    entries.forEach(([network, details]) => {
+                        const option = document.createElement('option');
+                        
+                        option.value = network;
+                        option.textContent = network;
+                        seleccreate.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки social_networks.json:', error);
+                });
+
+            fieldscreate.appendChild(seleccreate);
+            fieldscreate.appendChild(inputcreate);
+            fieldscreate.classList.add('fields');
+
+            socialspace.appendChild(fieldscreate);
+        } else {
+            createAlert('Has the maximum number of social networks been reached.', 'warning');
+            scrollToElement('.step#step5 .notif-block');
+        }
+    } catch (error) {
+        alert(`Error ${error}`);
+    }
+});
+
+function scrollToElement(targetSelector) {
+    const targetDiv = document.querySelector(targetSelector);
+    if (targetDiv) {
+        targetDiv.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+}
 
 function checkPassword(event) {
     const element = document.getElementById('pass-word');
